@@ -12,7 +12,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($row = $result->fetch_assoc()) {
-    echo json_encode(['success' => true] + $row);
+    $row['success'] = true;
+    echo json_encode($row);
 } else {
     echo json_encode(['success' => false]);
 }
