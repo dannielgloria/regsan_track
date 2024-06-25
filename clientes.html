@@ -61,7 +61,7 @@ REGSAN</h3>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -110,91 +110,91 @@ REGSAN</h3>
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-12">
+                    <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Registro de Cliente</h6>
-                            <form>
-                                <div id="alertPlaceholder"></div>
+                            <div id="alertPlaceholderCrear"></div>
+                            <form id="formCrearCliente" onsubmit="registrarCliente(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcCliente" class="form-label">RFC</label>
-                                    <input type="text" class="form-control" id="rfcCliente" required>
+                                    <label for="rfcClienteCrear" class="form-label">RFC</label>
+                                    <input type="text" class="form-control" id="rfcClienteCrear" name="rfcCliente" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="razonSocialCliente" class="form-label">Razón Social (nombre de la empresa)</label>
-                                    <input type="text" class="form-control" id="razonSocialCliente" required>
+                                    <label for="razonSocialClienteCrear" class="form-label">Razón Social (nombre de la empresa)</label>
+                                    <input type="text" class="form-control" id="razonSocialClienteCrear" name="razonSocialCliente" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="emailCliente" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailCliente" required>
-                                    <div id="emailHelp" class="form-text">No compartiremos tu email con nadie más.</div>
+                                    <label for="emailClienteCrear" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="emailClienteCrear" name="emailCliente" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="telefonoCliente" class="form-label">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefonoCliente" required>
+                                    <label for="telefonoClienteCrear" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefonoClienteCrear" name="telefonoCliente" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="nombreResponsableCliente" class="form-label">Nombre del Responsable</label>
-                                    <input type="text" class="form-control" id="nombreResponsableCliente" required>
+                                    <label for="nombreResponsableClienteCrear" class="form-label">Nombre del Responsable</label>
+                                    <input type="text" class="form-control" id="nombreResponsableClienteCrear" name="nombreResponsableCliente" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="apellidoResponsableCliente" class="form-label">Apellido del Responsable</label>
-                                    <input type="text" class="form-control" id="apellidoResponsableCliente" required>
+                                    <label for="apellidoResponsableClienteCrear" class="form-label">Apellido del Responsable</label>
+                                    <input type="text" class="form-control" id="apellidoResponsableClienteCrear" name="apellidoResponsableCliente" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Registrar Cliente</button>
                             </form>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Modificar Datos de Cliente</h6>
-                            <form id="formCliente" onsubmit="actualizarCliente(); return false;">
-                                <div id="alertPlaceholder"></div>
+                            <div id="alertPlaceholderActualizar"></div>
+                            <form id="formActualizarCliente" onsubmit="actualizarCliente(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcCliente" class="form-label">RFC</label>
-                                    <input type="text" class="form-control" id="rfcCliente" required placeholder="Ingresa RFC para buscar">
+                                    <label for="rfcClienteBuscar" class="form-label">RFC para búsqueda</label>
+                                    <input type="text" class="form-control" id="rfcClienteBuscar" required placeholder="Ingresa RFC para buscar">
+                                    <button type="button" class="btn btn-warning mt-2" onclick="buscarCliente()">Buscar Cliente</button>
                                 </div>
-                                <button type="button" class="btn btn-warning" onclick="buscarCliente()">Buscar Cliente</button>
-                    
+                                <input type="hidden" id="rfcClienteActualizar" name="rfcCliente">
                                 <div class="mb-3">
-                                    <label for="razonSocialCliente" class="form-label">Razón Social (nombre de la empresa)</label>
-                                    <input type="text" class="form-control" id="razonSocialCliente" required disabled>
+                                    <label for="razonSocialCliente" class="form-label">Razón Social</label>
+                                    <input type="text" class="form-control" id="razonSocialCliente" name="razonSocialCliente" required disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="emailCliente" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailCliente" required disabled>
+                                    <input type="email" class="form-control" id="emailCliente" name="emailCliente" required disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefonoCliente" class="form-label">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefonoCliente" required disabled>
+                                    <input type="tel" class="form-control" id="telefonoCliente" name="telefonoCliente" required disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombreResponsableCliente" class="form-label">Nombre del Responsable</label>
-                                    <input type="text" class="form-control" id="nombreResponsableCliente" required disabled>
+                                    <input type="text" class="form-control" id="nombreResponsableCliente" name="nombreResponsableCliente" required disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="apellidoResponsableCliente" class="form-label">Apellido del Responsable</label>
-                                    <input type="text" class="form-control" id="apellidoResponsableCliente" required disabled>
+                                    <input type="text" class="form-control" id="apellidoResponsableCliente" name="apellidoResponsableCliente" required disabled>
                                 </div>
-                                <button type="submit" class="btn btn-primary" disabled>Actualizar Datos</button>
+                                <button type="submit" class="btn btn-primary" id="actualizarDatos" disabled>Actualizar Datos</button>
                             </form>
                         </div>
-                    </div>                      
+                    </div>                                         
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Borrar Cliente</h6>
-                            <form id="formCliente" onsubmit="actualizarCliente(); return false;">
-                                <div id="alertPlaceholder"></div>
+                            <h6 class="mb-4">Eliminar Cliente</h6>
+                            <div id="alertPlaceholderEliminar"></div>
+                            <form id="formEliminarCliente" onsubmit="eliminarCliente(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcCliente" class="form-label">RFC</label>
-                                    <input type="text" class="form-control" id="rfcCliente" required placeholder="Ingresa RFC para buscar">
+                                    <label for="rfcClienteEliminar" class="form-label">RFC del Cliente a Eliminar</label>
+                                    <input type="text" class="form-control" id="rfcClienteEliminar" required>
                                 </div>
-                                <button type="button" class="btn btn-warning" onclick="buscarCliente()">Buscar Cliente</button>
+                                <button type="button" class="btn btn-danger" onclick="eliminarCliente()">Eliminar Cliente</button>
                             </form>
                         </div>
-                    </div>
+                    </div>                                       
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h4 class="mb-4">Clientes</h4>
+                            <div id="alertPlaceholder"></div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -209,11 +209,12 @@ REGSAN</h3>
                                         </tr>
                                     </thead>
                                     <tbody id="tablaClientesBody">
+                                        <!-- Las filas de los clientes se cargarán aquí mediante JavaScript -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>               
+                    </div>                                 
                 </div>
             </div>
             <!-- Form End -->
@@ -256,6 +257,7 @@ REGSAN</h3>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="backend/clientes/clientes.js"></script>
 </body>
 
 </html>
