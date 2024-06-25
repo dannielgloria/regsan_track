@@ -98,8 +98,11 @@
                                     <input type="text" class="form-control" id="claveTramiteCrear" name="claveTramite" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="rfcClienteTramiteCrear" class="form-label">RFC del Cliente</label>
-                                    <input type="text" class="form-control" id="rfcClienteTramiteCrear" name="rfcClienteTramite" required>
+                                    <label for="rfcClienteTramiteCrear" class="form-label">Cliente</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="rfcClienteTramiteCrear" name="rfcClienteTramite" required>
+                                        <option value="" selected>Selecciona un cliente</option>
+                                        <!-- Opciones cargadas desde el backend -->
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombreProductoCrear" class="form-label">Nombre del Producto</label>
@@ -128,7 +131,7 @@
                                 <div class="mb-3">
                                     <label for="estatusCrear" class="form-label">Estatus</label>
                                     <select class="form-select mb-3" aria-label="Default select example" id="estatusCrear" name="estatus" required>
-                                        <option value="" selected>Open this select menu</option>
+                                        <option value="" selected>Selecciona un estatus</option>
                                         <option value="Pendiente">Pendiente</option>
                                         <option value="En Proceso">En Proceso</option>
                                         <option value="Finalizado">Finalizado</option>
@@ -161,14 +164,11 @@
                             <div id="alertPlaceholderActualizar"></div>
                             <form id="formActualizarTramite" onsubmit="actualizarTramite(); return false;">
                                 <div class="mb-3">
-                                    <label for="claveTramiteBuscar" class="form-label">Clave para búsqueda</label>
-                                    <input type="text" class="form-control" id="claveTramiteBuscar" required placeholder="Ingresa Clave para buscar">
-                                    <button type="button" class="btn btn-warning mt-2" onclick="buscarTramite()">Buscar Trámite</button>
-                                </div>
-                                <input type="hidden" id="claveTramiteActualizar" name="claveTramite">
-                                <div class="mb-3">
-                                    <label for="rfcClienteTramiteActualizar" class="form-label">RFC del Cliente</label>
-                                    <input type="text" class="form-control" id="rfcClienteTramiteActualizar" name="rfcClienteTramite" required>
+                                    <label for="claveTramiteActualizar" class="form-label">Clave del Trámite</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="claveTramiteActualizar" name="claveTramite" required>
+                                        <option value="" selected>Selecciona un trámite</option>
+                                        <!-- Opciones cargadas desde el backend -->
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombreProductoActualizar" class="form-label">Nombre del Producto</label>
@@ -197,7 +197,7 @@
                                 <div class="mb-3">
                                     <label for="estatusActualizar" class="form-label">Estatus</label>
                                     <select class="form-select mb-3" aria-label="Default select example" id="estatusActualizar" name="estatus" required>
-                                        <option value="" selected>Open this select menu</option>
+                                        <option value="" selected>Selecciona un estatus</option>
                                         <option value="Pendiente">Pendiente</option>
                                         <option value="En Proceso">En Proceso</option>
                                         <option value="Finalizado">Finalizado</option>
@@ -230,8 +230,11 @@
                             <div id="alertPlaceholderEliminar"></div>
                             <form id="formEliminarTramite" onsubmit="eliminarTramite(); return false;">
                                 <div class="mb-3">
-                                    <label for="claveTramiteEliminar" class="form-label">Clave del Trámite a Eliminar</label>
-                                    <input type="text" class="form-control" id="claveTramiteEliminar" required>
+                                    <label for="claveTramiteEliminar" class="form-label">Clave del Trámite</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="claveTramiteEliminar" name="claveTramite" required>
+                                        <option value="" selected>Selecciona un trámite</option>
+                                        <!-- Opciones cargadas desde el backend -->
+                                    </select>
                                 </div>
                                 <button type="button" class="btn btn-danger" onclick="eliminarTramite()">Eliminar Trámite</button>
                             </form>
