@@ -2,7 +2,6 @@
 require_once '../db.php';
 
 $clave = $_POST['claveTramite'];
-$rfc_cliente = $_POST['rfcClienteTramite'];
 $nombre_producto = $_POST['nombreProducto'];
 $fabricante_producto = $_POST['fabricanteProducto'];
 $tipo_servicio = $_POST['tipoServicio'];
@@ -18,9 +17,9 @@ $consultor = $_POST['consultor'];
 $db = Database::getInstance();
 $connection = $db->getConnection();
 
-$sql = "UPDATE tramites SET rfc_cliente=?, nombre_producto=?, fabricante_producto=?, tipo_servicio=?, datos_tecnicos=?, fecha_inicio=?, fecha_fin=?, estatus=?, fecha_ingreso_cofepris=?, numero_entrada_cofepris=?, link_cofepris=?, consultor=? WHERE clave=?";
+$sql = "UPDATE tramites SET nombre_producto=?, fabricante_producto=?, tipo_servicio=?, datos_tecnicos=?, fecha_inicio=?, fecha_fin=?, estatus=?, fecha_ingreso_cofepris=?, numero_entrada_cofepris=?, link_cofepris=?, consultor=? WHERE clave=?";
 $stmt = $connection->prepare($sql);
-$stmt->bind_param("sssssssssssss", $rfc_cliente, $nombre_producto, $fabricante_producto, $tipo_servicio, $datos_tecnicos, $fecha_inicio, $fecha_fin, $estatus, $fecha_ingreso_cofepris, $numero_entrada_cofepris, $link_cofepris, $consultor, $clave);
+$stmt->bind_param("ssssssssssss", $nombre_producto, $fabricante_producto, $tipo_servicio, $datos_tecnicos, $fecha_inicio, $fecha_fin, $estatus, $fecha_ingreso_cofepris, $numero_entrada_cofepris, $link_cofepris, $consultor, $clave);
 
 if ($stmt->execute()) {
     echo "Trámite actualizado exitosamente.";
