@@ -46,9 +46,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><img src="img/logo.png" class="me-2" alt="logo REGSAN" width="35" height="35">
-
-REGSAN</h3>
+                    <h3 class="text-primary"><img src="img/logo.png" class="me-2" alt="logo REGSAN" width="35" height="35">REGSAN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -61,26 +59,14 @@ REGSAN</h3>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="index_admin.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="clientes.html" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>Clientes</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file me-2"></i>Tramites</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item active">Blank Page</a>
+                            <a href="tramites.html" class="dropdown-item">Admin. tramites</a>
+                            <a href="ver_tramites.html" class="dropdown-item active">Ver tramitres</a>
+                            <a href="404.html" class="dropdown-item">Enviar correo de tramite</a>
                         </div>
                     </div>
                 </div>
@@ -99,23 +85,87 @@ REGSAN</h3>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                
                 <div class="navbar-nav align-items-center ms-auto">
-                    <h2>Clientes</h2>
+                    <h2>Consulta tramites</h2>
                 </div>
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-                    <div class="col-md-6 text-center">
-                        <h3>This is blank page</h3>
+                <div class="row g-4">
+                    <div class="col-sm-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Ver tramites por Cliente</h6>
+                            <div id="alertPlaceholderCrear"></div>
+                            <form id="formCrearTramite" onsubmit="registrarTramite(); return false;">
+                                <div class="mb-3">
+                                    <label for="rfcClienteTramiteCrear" class="form-label">Cliente</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="rfcClienteTramiteCrear" name="rfcClienteTramite" required>
+                                        <option value="" selected>Selecciona un cliente</option>
+                                        <!-- Opciones cargadas desde el backend -->
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Ver tramites por estatus</h6>
+                            <div id="alertPlaceholderCrear"></div>
+                            <form id="formCrearTramite" onsubmit="registrarTramite(); return false;">
+                                <div class="mb-3">
+                                    <label for="rfcClienteTramiteCrear" class="form-label">Estatus</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="rfcClienteTramiteCrear" name="rfcClienteTramite" required>
+                                        <option value="" selected>Selecciona estatus</option>
+                                        <!-- Opciones cargadas desde el backend -->
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Blank End -->
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Nombre del cliente</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Proveedor</th>
+                                    <th scope="col">Servicio</th>
+                                    <th scope="col">Datos tecnicos</th>
+                                    <th scope="col">Inicio del trámite</th>
+                                    <th scope="col">Término del trámite</th>
+                                    <th scope="col">Estatus</th>
+                                    <th scope="col">No.COFEPRIS</th>
+                                    <th scope="col">Consultor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="link_cofepris">numero_entrada_cofepris</a></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Table End -->
 
 
             <!-- Footer Start -->
