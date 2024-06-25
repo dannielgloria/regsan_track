@@ -36,7 +36,7 @@
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Cargando...</span>
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
         <!-- Spinner End -->
@@ -46,9 +46,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><img src="img/logo.png" class="me-2" alt="logo REGSAN" width="35" height="35">
-
-REGSAN</h3>
+                    <h3 class="text-primary"><img src="img/logo.png" class="me-2" alt="logo REGSAN" width="35" height="35">REGSAN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -62,29 +60,7 @@ REGSAN</h3>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-                    <a href="clientes.html" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>Clientes</a>
-                    <a href="tramites.html" class="nav-item nav-link active"><i class="fa fa-file me-2"></i>Tramites</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Tramites</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
-                        </div>
-                    </div>
+                    <a href="tramites.html" class="nav-item nav-link active"><i class="fa fa-file me-2"></i>Trámites</a>
                 </div>
             </nav>
         </div>
@@ -103,7 +79,7 @@ REGSAN</h3>
                 </a>
                 
                 <div class="navbar-nav align-items-center ms-auto">
-                    <h2>Tramites</h2>
+                    <h2>Trámites</h2>
                 </div>
             </nav>
             <!-- Navbar End -->
@@ -114,109 +90,177 @@ REGSAN</h3>
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Registro de Cliente</h6>
+                            <h6 class="mb-4">Registro de Trámite</h6>
                             <div id="alertPlaceholderCrear"></div>
-                            <form id="formCrearCliente" onsubmit="registrarCliente(); return false;">
+                            <form id="formCrearTramite" onsubmit="registrarTramite(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcClienteCrear" class="form-label">RFC</label>
-                                    <input type="text" class="form-control" id="rfcClienteCrear" name="rfcCliente" required>
+                                    <label for="claveTramiteCrear" class="form-label">Clave</label>
+                                    <input type="text" class="form-control" id="claveTramiteCrear" name="claveTramite" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="razonSocialClienteCrear" class="form-label">Razón Social (nombre de la empresa)</label>
-                                    <input type="text" class="form-control" id="razonSocialClienteCrear" name="razonSocialCliente" required>
+                                    <label for="rfcClienteTramiteCrear" class="form-label">RFC del Cliente</label>
+                                    <input type="text" class="form-control" id="rfcClienteTramiteCrear" name="rfcClienteTramite" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="emailClienteCrear" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailClienteCrear" name="emailCliente" required>
+                                    <label for="nombreProductoCrear" class="form-label">Nombre del Producto</label>
+                                    <input type="text" class="form-control" id="nombreProductoCrear" name="nombreProducto" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="telefonoClienteCrear" class="form-label">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefonoClienteCrear" name="telefonoCliente" required>
+                                    <label for="fabricanteProductoCrear" class="form-label">Fabricante del Producto</label>
+                                    <input type="text" class="form-control" id="fabricanteProductoCrear" name="fabricanteProducto" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="nombreResponsableClienteCrear" class="form-label">Nombre del Responsable</label>
-                                    <input type="text" class="form-control" id="nombreResponsableClienteCrear" name="nombreResponsableCliente" required>
+                                    <label for="tipoServicioCrear" class="form-label">Tipo de Servicio</label>
+                                    <input type="text" class="form-control" id="tipoServicioCrear" name="tipoServicio" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="apellidoResponsableClienteCrear" class="form-label">Apellido del Responsable</label>
-                                    <input type="text" class="form-control" id="apellidoResponsableClienteCrear" name="apellidoResponsableCliente" required>
+                                    <label for="datosTecnicosCrear" class="form-label">Datos Técnicos</label>
+                                    <textarea class="form-control" id="datosTecnicosCrear" name="datosTecnicos" rows="3" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Registrar Cliente</button>
+                                <div class="mb-3">
+                                    <label for="fechaInicioCrear" class="form-label">Fecha de Inicio</label>
+                                    <input type="date" class="form-control" id="fechaInicioCrear" name="fechaInicio" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaFinCrear" class="form-label">Fecha de Fin</label>
+                                    <input type="date" class="form-control" id="fechaFinCrear" name="fechaFin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="estatusCrear" class="form-label">Estatus</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="estatusCrear" name="estatus" required>
+                                        <option value="" selected>Open this select menu</option>
+                                        <option value="Pendiente">Pendiente</option>
+                                        <option value="En Proceso">En Proceso</option>
+                                        <option value="Finalizado">Finalizado</option>
+                                        <option value="Cancelado">Cancelado</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaIngresoCofeprisCrear" class="form-label">Fecha de Ingreso a COFEPRIS</label>
+                                    <input type="date" class="form-control" id="fechaIngresoCofeprisCrear" name="fechaIngresoCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numeroEntradaCofeprisCrear" class="form-label">Número de Entrada a COFEPRIS</label>
+                                    <input type="text" class="form-control" id="numeroEntradaCofeprisCrear" name="numeroEntradaCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="linkCofeprisCrear" class="form-label">Link de COFEPRIS</label>
+                                    <input type="url" class="form-control" id="linkCofeprisCrear" name="linkCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="consultorCrear" class="form-label">Consultor Asignado</label>
+                                    <input type="text" class="form-control" id="consultorCrear" name="consultor" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Registrar Trámite</button>
                             </form>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Modificar Datos de Cliente</h6>
+                            <h6 class="mb-4">Modificar Datos de Trámite</h6>
                             <div id="alertPlaceholderActualizar"></div>
-                            <form id="formActualizarCliente" onsubmit="actualizarCliente(); return false;">
+                            <form id="formActualizarTramite" onsubmit="actualizarTramite(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcClienteBuscar" class="form-label">RFC para búsqueda</label>
-                                    <input type="text" class="form-control" id="rfcClienteBuscar" required placeholder="Ingresa RFC para buscar">
-                                    <button type="button" class="btn btn-warning mt-2" onclick="buscarCliente()">Buscar Cliente</button>
+                                    <label for="claveTramiteBuscar" class="form-label">Clave para búsqueda</label>
+                                    <input type="text" class="form-control" id="claveTramiteBuscar" required placeholder="Ingresa Clave para buscar">
+                                    <button type="button" class="btn btn-warning mt-2" onclick="buscarTramite()">Buscar Trámite</button>
                                 </div>
-                                <input type="hidden" id="rfcClienteActualizar" name="rfcCliente">
+                                <input type="hidden" id="claveTramiteActualizar" name="claveTramite">
                                 <div class="mb-3">
-                                    <label for="razonSocialCliente" class="form-label">Razón Social</label>
-                                    <input type="text" class="form-control" id="razonSocialCliente" name="razonSocialCliente" required disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="emailCliente" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailCliente" name="emailCliente" required disabled>
+                                    <label for="rfcClienteTramiteActualizar" class="form-label">RFC del Cliente</label>
+                                    <input type="text" class="form-control" id="rfcClienteTramiteActualizar" name="rfcClienteTramite" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="telefonoCliente" class="form-label">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefonoCliente" name="telefonoCliente" required disabled>
+                                    <label for="nombreProductoActualizar" class="form-label">Nombre del Producto</label>
+                                    <input type="text" class="form-control" id="nombreProductoActualizar" name="nombreProducto" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="nombreResponsableCliente" class="form-label">Nombre del Responsable</label>
-                                    <input type="text" class="form-control" id="nombreResponsableCliente" name="nombreResponsableCliente" required disabled>
+                                    <label for="fabricanteProductoActualizar" class="form-label">Fabricante del Producto</label>
+                                    <input type="text" class="form-control" id="fabricanteProductoActualizar" name="fabricanteProducto" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="apellidoResponsableCliente" class="form-label">Apellido del Responsable</label>
-                                    <input type="text" class="form-control" id="apellidoResponsableCliente" name="apellidoResponsableCliente" required disabled>
+                                    <label for="tipoServicioActualizar" class="form-label">Tipo de Servicio</label>
+                                    <input type="text" class="form-control" id="tipoServicioActualizar" name="tipoServicio" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary" id="actualizarDatos" disabled>Actualizar Datos</button>
+                                <div class="mb-3">
+                                    <label for="datosTecnicosActualizar" class="form-label">Datos Técnicos</label>
+                                    <textarea class="form-control" id="datosTecnicosActualizar" name="datosTecnicos" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaInicioActualizar" class="form-label">Fecha de Inicio</label>
+                                    <input type="date" class="form-control" id="fechaInicioActualizar" name="fechaInicio" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaFinActualizar" class="form-label">Fecha de Fin</label>
+                                    <input type="date" class="form-control" id="fechaFinActualizar" name="fechaFin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="estatusActualizar" class="form-label">Estatus</label>
+                                    <select class="form-select mb-3" aria-label="Default select example" id="estatusActualizar" name="estatus" required>
+                                        <option value="" selected>Open this select menu</option>
+                                        <option value="Pendiente">Pendiente</option>
+                                        <option value="En Proceso">En Proceso</option>
+                                        <option value="Finalizado">Finalizado</option>
+                                        <option value="Cancelado">Cancelado</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaIngresoCofeprisActualizar" class="form-label">Fecha de Ingreso a COFEPRIS</label>
+                                    <input type="date" class="form-control" id="fechaIngresoCofeprisActualizar" name="fechaIngresoCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numeroEntradaCofeprisActualizar" class="form-label">Número de Entrada a COFEPRIS</label>
+                                    <input type="text" class="form-control" id="numeroEntradaCofeprisActualizar" name="numeroEntradaCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="linkCofeprisActualizar" class="form-label">Link de COFEPRIS</label>
+                                    <input type="url" class="form-control" id="linkCofeprisActualizar" name="linkCofepris" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="consultorActualizar" class="form-label">Consultor Asignado</label>
+                                    <input type="text" class="form-control" id="consultorActualizar" name="consultor" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="actualizarDatos" disabled>Actualizar Trámite</button>
                             </form>
                         </div>
-                    </div>                                         
+                    </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Eliminar Cliente</h6>
+                            <h6 class="mb-4">Eliminar Trámite</h6>
                             <div id="alertPlaceholderEliminar"></div>
-                            <form id="formEliminarCliente" onsubmit="eliminarCliente(); return false;">
+                            <form id="formEliminarTramite" onsubmit="eliminarTramite(); return false;">
                                 <div class="mb-3">
-                                    <label for="rfcClienteEliminar" class="form-label">RFC del Cliente a Eliminar</label>
-                                    <input type="text" class="form-control" id="rfcClienteEliminar" required>
+                                    <label for="claveTramiteEliminar" class="form-label">Clave del Trámite a Eliminar</label>
+                                    <input type="text" class="form-control" id="claveTramiteEliminar" required>
                                 </div>
-                                <button type="button" class="btn btn-danger" onclick="eliminarCliente()">Eliminar Cliente</button>
+                                <button type="button" class="btn btn-danger" onclick="eliminarTramite()">Eliminar Trámite</button>
                             </form>
                         </div>
-                    </div>                                       
+                    </div>
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h4 class="mb-4">Clientes</h4>
+                            <h4 class="mb-4">Trámites</h4>
                             <div id="alertPlaceholder"></div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">RFC</th>
-                                            <th scope="col">Razón Social</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Teléfono</th>
-                                            <th scope="col">Nombre Responsable</th>
-                                            <th scope="col">Apellido Responsable</th>
+                                            <th scope="col">Clave</th>
+                                            <th scope="col">RFC Cliente</th>
+                                            <th scope="col">Nombre Producto</th>
+                                            <th scope="col">Fabricante Producto</th>
+                                            <th scope="col">Tipo Servicio</th>
+                                            <th scope="col">Estatus</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tablaClientesBody">
-                                        <!-- Las filas de los clientes se cargarán aquí mediante JavaScript -->
+                                    <tbody id="tablaTramitesBody">
+                                        <!-- Las filas de los trámites se cargarán aquí mediante JavaScript -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>                                 
+                    </div>
                 </div>
             </div>
             <!-- Form End -->
@@ -227,7 +271,7 @@ REGSAN</h3>
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="https://consultoriaregsan.com">REGSAN</a>, Todos los derechos reservados. 
+                            &copy; <a href="https://consultoriaregsan.com">REGSAN</a>, Todos los derechos reservados.
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
@@ -259,7 +303,7 @@ REGSAN</h3>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="backend/clientes/clientes.js"></script>
+    <script src="backend/tramites/tramites.js"></script>
 </body>
 
 </html>
